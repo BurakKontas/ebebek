@@ -54,7 +54,6 @@ public class Employee {
         return artis;
     }
 
-    //bonus u çalıştırdığımız zaman zaten toplam maaşı zamlı hali olacak
     @Override
     public String toString() {
       return ("""
