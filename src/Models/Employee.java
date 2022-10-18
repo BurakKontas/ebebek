@@ -59,11 +59,12 @@ public class Employee {
       return ("""
               İsmi: %s
               Maaşı: %f
-              Haftalık Çalışma Saati: %d
+              Çalışma Saati: %d
               Başlangıç Yılı: %d
               Vergi: %f
+              Bonus: %f
               Maaş Artışı: %f
-              Vergi ve Bonuslarla Maaş: %f
+              Vergi ve Bonuslarla Birlikte Maaş: %f
               Toplam Maaş: %f
               """)
               .formatted(
@@ -72,9 +73,10 @@ public class Employee {
                       this._workHours,
                       this._hireYear,
                       this.tax(),
+                      this.bonus(),
                       this.raiseSalary(),
-                      this._salary-this.tax(),  //kendi maaşı dediği için zamsız halini kabul ettim
-                      this._salary+this.bonus() //kendi maaşı dediği için zamsız halini kabul ettim
+                      this._salary+this.bonus()-this.tax(),  //kendi maaşı dediği için zamsız halini kabul ettim
+                      this._salary+(4*(this.bonus-this.tax())) //kendi maaşı dediği için zamsız halini kabul ettim
               );
     }
 }
